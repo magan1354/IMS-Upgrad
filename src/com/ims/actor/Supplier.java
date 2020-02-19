@@ -1,16 +1,16 @@
 package com.ims.actor;
 
-class Supplier {
+public class Supplier {
 
     int id;
     String name;
     Address address;
 
-    Supplier(){
+    public Supplier(){
         System.out.println("Supplier Constructed !!");
     }
 
-    Supplier(String name, Address address) {
+    public Supplier(String name, Address address) {
         this();
         this.name = name;
         this.address = address;
