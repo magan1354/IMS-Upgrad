@@ -9,6 +9,7 @@ class Admin {
     private String name;
     private Address address;
     private Supplier[] suppliers = new Supplier[1000];
+    private static int supCount = 0;
 
     Admin(){
         System.out.println("Admin Constructed !!");
@@ -36,14 +37,14 @@ class Admin {
 
     // Storing a supplier
     private int storeSupplier(Supplier supplier){
-        SupplierHolder supplierHolder = new SupplierHolder();
-        supplierHolder.saveSupplier(supplier);
-        return -1;
+        int index = SupplierHolder.saveSupplier(supplier);
+        return index;
     }
 
     // Mapping a supplier with Admin
     private void mapSupplier(Supplier supplier){
-
+        suppliers[supCount] = supplier;
+        supCount = supCount + 1;
     }
 
     public String getName(){
