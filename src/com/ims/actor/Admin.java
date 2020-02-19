@@ -5,6 +5,7 @@ class Admin {
     int id;
     String name;
     Address address;
+    Supplier[] suppliers = new Supplier[1000];
 
     Admin(){
         System.out.println("Admin Constructed !!");
@@ -19,6 +20,11 @@ class Admin {
     void checkProfileDashboard(){
         System.out.println("Please selection an option : ");
         System.out.println("Press 1 for Viewing profile details");
+    }
+
+    void addSupplier(Supplier supplier){
+        //store the supplier
+        //Mapping the supplier to the administrator
     }
 
     String getName(){
