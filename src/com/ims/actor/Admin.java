@@ -22,9 +22,24 @@ class Admin {
         System.out.println("Press 1 for Viewing profile details");
     }
 
-    void addSupplier(Supplier supplier){
-        //store the supplier
-        //Mapping the supplier to the administrator
+    public void addSupplier(Supplier supplier){
+        // Store the supplier
+        int id = storeSupplier(supplier);
+        supplier.id=id;
+        mapSupplier(supplier);
+        // Mapping the supplier to the administrator
+
+    }
+
+    // Storing a supplier
+    private int storeSupplier(Supplier supplier){
+        // Store supplier
+        return -1;
+    }
+
+    // Mapping a supplier with Admin
+    private void mapSupplier(Supplier supplier){
+
     }
 
     String getName(){
