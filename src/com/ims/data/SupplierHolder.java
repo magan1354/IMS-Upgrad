@@ -1,7 +1,7 @@
 package com.ims.data;
 import com.ims.actor.Supplier;
 
-class SupplierHolder {
+public class SupplierHolder {
     Supplier[] suppliers = new Supplier[10000];
     private int currentIndex = 0;
 

@@ -1,4 +1,7 @@
 package com.ims.actor;
+
+import com.ims.data.SupplierHolder;
+
 // class <className>
 class Admin {
     //DataType nameofattribute
@@ -25,7 +28,7 @@ class Admin {
     public void addSupplier(Supplier supplier){
         // Store the supplier
         int id = storeSupplier(supplier);
-        supplier.id=id;
+        supplier.setId(id);
         mapSupplier(supplier);
         // Mapping the supplier to the administrator
 
@@ -33,7 +36,8 @@ class Admin {
 
     // Storing a supplier
     private int storeSupplier(Supplier supplier){
-        // Store supplier
+        SupplierHolder supplierHolder = new SupplierHolder();
+        supplierHolder.saveSupplier(supplier);
         return -1;
     }
 
