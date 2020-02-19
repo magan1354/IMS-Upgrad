@@ -4,21 +4,15 @@ class Admin {
     //DataType nameofattribute
     int id;
     String name;
-    String buildingNumber;
-    String streetName;
-    String city;
-    int pincode;
+    Address address;
 
     Admin(){
         System.out.println("Admin Constructed !!");
     }
 
-    Admin(String n, String bn, String sn, String c, int pc){
+    Admin(String n, Address address){
         name = n;
-        buildingNumber = bn;
-        streetName = sn;
-        city = c;
-        pincode = pc;
+        this.address = address;
     }
 
     // returnType methodName(){ //method definition -> return statement}
