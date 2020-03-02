@@ -10,10 +10,12 @@ class Admin extends SystemUser {
     private static int supCount = 0;
 
     Admin() {
+        super(null, null);
         System.out.println("Admin Constructed !!");
     }
 
     Admin(String n, Address address) {
+        super(n, address);
         setName(n);
         setAddress(address);
     }
