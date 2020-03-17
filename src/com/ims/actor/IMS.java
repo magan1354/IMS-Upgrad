@@ -1,6 +1,6 @@
 package com.ims.actor;
 
-class IMS {
+public class IMS {
     public static void main(String[] args){
         /*Admin admin = new Admin("Sahil", "1171", "GT Road", "Delhi", 110007);
 
@@ -10,6 +10,6 @@ class IMS {
         System.out.println(admin.pincode);
 
         Admin admin2 = new Admin();*/
-        InventoryManager imanager = new InventoryManager("Ankit" , "1172", "GT Road", "Delhi", 110007);
+        //InventoryManager imanager = new InventoryManager("Ankit" , "1172", "GT Road", "Delhi", 110007);
     }
 }

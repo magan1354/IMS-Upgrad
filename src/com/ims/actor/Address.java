@@ -1,20 +1,20 @@
 package com.ims.actor;
 
-class Address {
+public class Address {
 
-    String buildingNumber;
-    String streetName;
-    String city;
-    int pincode;
+    private String buildingNumber;
+    private String streetName;
+    private String city;
+    private int pincode;
 
-    Address(String buildingNumber, String streetName, String city, int pincode){
+    public Address(String buildingNumber, String streetName, String city, int pincode){
         this.buildingNumber = buildingNumber;
         this.streetName = streetName;
         this.city = city;
         this.pincode = pincode;
     }
 
-    Address(){
+    public Address(){
 
     }
 }

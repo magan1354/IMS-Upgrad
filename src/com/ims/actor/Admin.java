@@ -3,27 +3,28 @@ package com.ims.actor;
 import com.ims.data.SupplierHolder;
 
 // class <className>
-class Admin extends SystemUser {
+public class Admin extends SystemUser {
     //DataType nameofattribute
 
     private Supplier[] suppliers = new Supplier[1000];
     private static int supCount = 0;
 
-    Admin() {
+    public Admin() {
         super(null, null);
         System.out.println("Admin Constructed !!");
     }
 
-    Admin(String n, Address address) {
+    public Admin(String n, Address address) {
         super(n, address);
         setName(n);
         setAddress(address);
     }
 
     // returnType methodName(){ //method definition -> return statement}
-    void checkProfileDashboard() {
+    public void checkProfileDashboard() {
         if(loggedIn == false){
             System.out.println("Please login first !!");
+            return;
         }
         System.out.println("Please selection an option : ");
         System.out.println("Press 1 for Viewing profile details");

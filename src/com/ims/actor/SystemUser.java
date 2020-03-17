@@ -1,6 +1,6 @@
 package com.ims.actor;
 
-class SystemUser {
+public class SystemUser {
 
     private int id;
     private String name;
@@ -12,7 +12,7 @@ class SystemUser {
         this.address = address;
     }
 
-    public void login(String userName, String Password){
+    public void login(String userName, String Password) {
         // Check whether userName & password is valid or not
         // If valid then store state as loggedIn
     }
