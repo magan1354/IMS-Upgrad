@@ -5,10 +5,16 @@ class SystemUser {
     private int id;
     private String name;
     private Address address;
+    protected boolean loggedIn;
 
     public SystemUser(String name, Address address) {
         this.name = name;
         this.address = address;
+    }
+
+    public void login(String userName, String Password){
+        // Check whether userName & password is valid or not
+        // If valid then store state as loggedIn
     }
 
     public String getName(){
