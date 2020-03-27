@@ -32,7 +32,22 @@ class IMSApplication {
                 break;
             default:
         }
+        showLoginScreen(user,scanner);
+    }
 
+    private static void showLoginScreen(SystemUser user,Scanner scanner) {
+        boolean loggedIn = false;
+        while (!loggedIn) {
+            System.out.println("UserName: ");
+            String userName = scanner.next();
+            System.out.println("Password: ");
+            String password = scanner.next();
+            loggedIn = user.login(userName, password);
+            if (loggedIn == false) {
+                System.out.println("Invalid Username/password, please try again");
+            }
+        }
+        System.out.println(user.getName()+" logged in successfully");
     }
 
     private static int checkUserSelection(Scanner scanner) {

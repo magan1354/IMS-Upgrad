@@ -13,11 +13,6 @@ public class SystemUser {
     }
 
     public boolean login(String userName, String Password) {
-        if("systemuser".equalsIgnoreCase(userName) && "systemuser".equalsIgnoreCase(Password)) {
-            loggedIn=true;
-            return true;
-        }
-        return false;
         // Check whether userName & password is valid or not
         // If valid then store state as loggedIn
     }

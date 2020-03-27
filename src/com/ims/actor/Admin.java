@@ -52,14 +52,4 @@ public class Admin extends SystemUser {
         suppliers[supCount] = supplier;
         supCount = supCount + 1;
     }
-
-    @Override
-    public boolean login(String userName, String password) {
-        if("admin".equalsIgnoreCase(userName) && "admin".equalsIgnoreCase(password)) {
-            loggedIn=true;
-            return true;
-        }
-        loggedIn=false;
-        return false;
-    }
 }
