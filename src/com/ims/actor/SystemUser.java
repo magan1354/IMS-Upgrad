@@ -24,6 +24,11 @@ public abstract class SystemUser {
 
     public abstract void checkProfileDashboard();
 
+    public void logout() {
+        loggedIn=false;
+        System.out.println("User :"+name+" logged out successfully!");
+    }
+
     public String getName(){
         return name;
     }

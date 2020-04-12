@@ -1,5 +1,8 @@
 package com.ims.actor;
 
+import com.ims.data.OrderHolder;
+import com.ims.entity.Order;
+
 public class InventoryManager extends SystemUser{
 
     public InventoryManager() {
@@ -27,5 +30,12 @@ public class InventoryManager extends SystemUser{
         }
         loggedIn=false;
         return false;
+    }
+
+    public Order placeOrder(Integer productId, Integer quantity, Supplier supplier) {
+        Order order = new Order(productId,quantity,this,supplier);
+        Order savedOrder = OrderHolder.save(order);
+        System.out.println("Order placed with id:"+savedOrder.getId());
+        return order;
     }
 }

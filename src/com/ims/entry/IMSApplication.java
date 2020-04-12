@@ -3,10 +3,23 @@ package com.ims.entry;
 import java.util.Scanner;
 
 import com.ims.actor.*;
+import com.ims.data.SystemUserHolder;
+import com.ims.entity.Order;
 
 class IMSApplication {
 
     public static void main(String[] args) {
+
+        Address adminAddress = new Address("1303", "Laurence Street", "Delhi", 110007);
+        SystemUser admin = new Admin("Admin", adminAddress);
+        SystemUserHolder.save(admin);
+
+        Address supplierAddress = new Address("1304", "Laurence Street", "Delhi", 110007);
+        SystemUser supplier = new Supplier("Supplier", supplierAddress);
+        SystemUserHolder.save(supplier);
+
+        Address imAddress = new Address("1305", "Laurence Street", "Delhi", 110007);
+        SystemUser inventoryManager = new InventoryManager("Inventory Manager", imAddress);
 
         System.out.println("Welcome to Inventory Management System!");
         System.out.println("Please Press ");
@@ -17,22 +30,52 @@ class IMSApplication {
 
         int userSelection = checkUserSelection(scanner);
         SystemUser user = null;
+        String role = "";
         switch (userSelection) {
             case 1:
-                Address adminAddress = new Address("1303", "Laurence Street", "Delhi", 110007);
-                user = new Admin("Admin", adminAddress);
+                user = admin;
+                role = "admin";
                 break;
             case 2:
-                Address supplierAddress = new Address("1304", "Laurence Street", "Delhi", 110007);
-                user = new Supplier("Supplier", supplierAddress);
+                user = supplier;
+                role = "Supplier";
                 break;
             case 3:
-                Address imAddress = new Address("1305", "Laurence Street", "Delhi", 110007);
-                user = new InventoryManager("Inventory Manager", imAddress);
+                user = inventoryManager;
+                role = "InventoryManager";
                 break;
             default:
         }
         showLoginScreen(user,scanner);
+        while(true) {
+            showProfileDashboard(user,role,scanner);
+        }
+    }
+
+    private static void showProfileDashboard(SystemUser user, String role, Scanner scanner) {
+        user.checkProfileDashboard();
+        int userProfileDashboardSelection = scanner.nextInt();
+        switch (userProfileDashboardSelection) {
+            case 4:
+                user.logout();
+                System.exit(1);
+                break;
+            case 6:
+                if (!role.equalsIgnoreCase("InventoryManager")) {
+                    System.out.println("Invalid input for " + role);
+                    System.exit(1);
+                }
+                System.out.println("ProductId:");
+                Integer prodId = scanner.nextInt();
+                System.out.println("Quantity:");
+                Integer quantity = scanner.nextInt();
+                System.out.println("OverallPrice:" + 100 * quantity);
+                System.out.println("Supplier id:");
+                Integer supplierId = scanner.nextInt();
+                Order order = ((InventoryManager) user).placeOrder(prodId, quantity, (Supplier) SystemUserHolder.fetchById(supplierId));
+                System.out.println("Order created with id:" + order.getId() + " and status:" + order.getStatus());
+                break;
+        }
     }
 
     private static void showLoginScreen(SystemUser user,Scanner scanner) {
