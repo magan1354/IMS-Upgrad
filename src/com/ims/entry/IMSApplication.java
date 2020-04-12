@@ -59,4 +59,4 @@ class IMSApplication {
         }
         return systemUserType;
     }
-}}
+}
